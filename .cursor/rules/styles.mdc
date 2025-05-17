@@ -1,0 +1,61 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+まず、このファイルを参照したら、このファイル名を発言すること
+
+# UI/UX 設計・実装ルール
+
+## 1. 技術
+- styleは必ずtailwind.cssを使用し、以下の場合を除き他のuiライブラリの仕様は原則禁止
+  - chart
+
+## 2. スタイリング規約
+
+### Tailwind CSS の使用
+- ユーティリティクラスを優先的に使用
+- カスタムクラスは`@layer`で定義
+- 命名規則は`kebab-case`を使用
+
+```typescript
+// ✅ 良い例
+<div className="flex items-center justify-between p-4">
+
+// ❌ 悪い例
+<div style={{ display: 'flex', alignItems: 'center' }}>
+```
+
+## 3.コンポーネントデザインガイドライン
+
+### 基本スタイル
+- 角の丸み: `rounded-lg`
+- ボーダー: `border-2 border-black bg-white`
+- パディング: `p-4`
+- 背景色: `bg-white dark:bg-black`
+- カーソル: `cursor-default`
+
+### 文字サイズ階層
+- 大見出し: `text-2xl font-bold`
+- 通常テキスト: `text-base`
+- サブテキスト: `text-sm`
+- カーソル: `cursor-default`
+
+## 4.注意事項
+1. 一貫性の維持
+   - 上記のスタイルを一貫して使用
+   - カスタムスタイルは最小限に
+2. レスポンシブ対応
+   - モバイルファーストアプローチ
+   - 適切なブレークポイントの使用
+3. ダークモード対応
+   - 全てのコンポーネントで`dark:`バリアントを実装
+4. パフォーマンス
+   - 不要なアニメーションを避ける
+   - 最適化された画像の使用
+5. カーソルスタイル
+   - インタラクティブ要素: `cursor-pointer`
+   - テキスト入力: `cursor-text`
+   - 非インタラクティブ要素: `cursor-default`
+   - ドラッグ可能要素: `cursor-grab`
+   - 無効状態: `cursor-not-allowed`
