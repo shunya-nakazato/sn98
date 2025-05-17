@@ -14,7 +14,7 @@ export default function NavigationMenu() {
         <NavMenu />
       )}
       <button
-        className="flex justify-center items-center cursor-pointer"
+        className="flex justify-center items-center cursor-pointer p-3 rounded-2xl border border-contrast"
         onClick={() => setOpen((v) => !v)}
       // onBlur={() => setOpen(false)}
       >
@@ -27,7 +27,7 @@ export default function NavigationMenu() {
 function NavMenu() {
   return (
     <div
-      className="py-4 px-6 flex flex-col gap-3 mb-4 rounded bg-contrast-low"
+      className="py-4 px-6 flex flex-col gap-3 mb-4 rounded-2xl border border-contrast"
     >
       <Link href="/" className="flex items-center gap-3">
         <span>🏠</span>

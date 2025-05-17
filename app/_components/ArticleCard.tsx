@@ -16,15 +16,14 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       href={`/articles/${slug}`}
       key={article.title}
       className={cn(
-        "relative w-full aspect-video hover:scale-105 duration-200 overflow-hidden group",
+        "relative w-full h-fit hover:scale-105 duration-200 overflow-hidden group",
       )}
     >
       <div className="flex items-center w-full justify-between mb-2">
         <h2 className="text-2xl font-bold">{article.title}</h2>
       </div>
-      <LatexHtmlArticle file={article.file} />
-      <div className="absolute bottom-0 left-0 w-full flex bg-background">
-        ...
+      <div className="flex items-center w-full justify-between mb-2">
+        <p className="text-sm">{article.description}</p>
       </div>
     </Link>
   );

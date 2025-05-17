@@ -3,6 +3,7 @@ import LatexHtmlArticle from '../_components/LatexHtmlArticle';
 import { notFound } from 'next/navigation';
 import { Article } from '../_types/type';
 import convertTitleToSlug from '@/app/_utils/convertTitleToSlug';
+import type { Metadata, ResolvingMetadata } from 'next'
 
 // Generate static params for SSG
 export async function generateStaticParams() {
@@ -16,6 +17,26 @@ type Props = {
     slug: string;
   }>;
 };
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+
+  const { slug } = await params;
+  const article: Article | undefined = articles.find(
+    (article) => convertTitleToSlug(article.title) === slug
+  );
+
+  if (!article) {
+    notFound();
+  }
+
+  return {
+    title: `${article.title} | SN98`,
+    description: article.description,
+  }
+}
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
