@@ -1,11 +1,12 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --gray: #888888;
-  --gray-dark: #404040;
-  --gray-light: #C0C0C0;
+  --foreground: #000000;
+  --contrast-low: #dbe0e5;
+  --contrast: #687b8c;
+  --contrast-high: #272e34;
   --primary: #0000FF;
   --primary-dark: #000080;
   --primary-light: #8080FF;
@@ -14,11 +15,19 @@
   --secondary-light: #FF8080;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+  } */
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --contrast-low: #111417;
+  --contrast: #3c4752;
+  --contrast-high: #8394a4;
 }
 
 @theme inline {
@@ -26,16 +35,18 @@
   --font-mono: var(--font-geist-mono);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-contrast: var(--contrast);
+  --color-contrast-low: var(--contrast-low);
+  --color-contrast-high: var(--contrast-high);
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
   --color-primary-light: var(--primary-light);
   --color-secondary: var(--secondary);
   --color-secondary-dark: var(--secondary-dark);
   --color-secondary-light: var(--secondary-light);
-  --color-gray: var(--gray);
 }
 
-body {
+html {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;

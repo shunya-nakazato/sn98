@@ -29,11 +29,6 @@ alwaysApply: true
 ## 3.コンポーネントデザインガイドライン
 
 ### 基本スタイル
-- 角の丸み: `rounded-lg`
-- ボーダー: `border-2 border-black bg-white`
-- パディング: `p-4`
-- 背景色: `bg-white dark:bg-black`
-- カーソル: `cursor-default`
 
 ### 文字サイズ階層
 - 大見出し: `text-2xl font-bold`

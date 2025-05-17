@@ -28,7 +28,7 @@ export default async function ArticlePage({ params }: Props) {
   }
 
   return (
-    <main className="w-full flex justify-center mt-6">
+    <main className="w-full flex justify-center pt-6 overflow-y-scroll">
       <article className="w-full max-w-2xl">
         <div className="flex items-center mb-6">
           <h1 className="text-4xl font-bold">{article.title}</h1>

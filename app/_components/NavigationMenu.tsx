@@ -1,0 +1,43 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { TbCategory, TbHome } from "react-icons/tb";
+import { ThemeToggle } from "./ThemeToggle";
+
+export default function NavigationMenu() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="fixed bottom-8 left-8 z-50 rounded-2xl bg-background">
+      {open && (
+        <NavMenu />
+      )}
+      <button
+        className="flex justify-center items-center cursor-pointer"
+        onClick={() => setOpen((v) => !v)}
+      // onBlur={() => setOpen(false)}
+      >
+        <TbCategory className="text-2xl" />
+      </button>
+    </div>
+  );
+}
+
+function NavMenu() {
+  return (
+    <div
+      className="py-4 px-6 flex flex-col gap-3 mb-4 rounded bg-contrast-low"
+    >
+      <Link href="/" className="flex items-center gap-3">
+        <span>🏠</span>
+        <span>home</span>
+      </Link>
+      <Link href="/about" className="flex items-center gap-3">
+        <span>🙋‍♂️</span>
+        <span>about</span>
+      </Link>
+      <ThemeToggle />
+    </div>
+  )
+}
