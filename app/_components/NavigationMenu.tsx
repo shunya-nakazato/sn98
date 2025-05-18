@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import { TbCategory } from "react-icons/tb";
-import useTheme from "../_hooks/useTheme";
-import { ThemeToggle } from "./ThemeToggle";
+import { useState } from 'react';
+import Link from 'next/link';
+import { TbCategory } from 'react-icons/tb';
+import useTheme from '../_hooks/useTheme';
+import { ThemeToggle } from './ThemeToggle';
 
 export default function NavigationMenu() {
   const [open, setOpen] = useState(false);
@@ -15,7 +15,7 @@ export default function NavigationMenu() {
       <button
         className="flex justify-center items-center cursor-pointer p-3 rounded-2xl border border-contrast"
         onClick={() => setOpen((v) => !v)}
-      // onBlur={() => setOpen(false)}
+        // onBlur={() => setOpen(false)}
       >
         <TbCategory className="text-2xl" />
       </button>
@@ -28,9 +28,7 @@ function NavMenu({ open }: { open: boolean }) {
 
   return (
     open && (
-      <div
-        className="py-4 px-6 flex flex-col gap-3 mb-4 rounded-2xl border border-contrast"
-      >
+      <div className="py-4 px-6 flex flex-col gap-3 mb-4 rounded-2xl border border-contrast">
         <Link href="/" className="flex items-center gap-3">
           <span>🏠</span>
           <span>home</span>
@@ -42,5 +40,5 @@ function NavMenu({ open }: { open: boolean }) {
         <ThemeToggle toggleTheme={toggleTheme} />
       </div>
     )
-  )
+  );
 }

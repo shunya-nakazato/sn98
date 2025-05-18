@@ -1,6 +1,6 @@
-import Link from "next/link";
+import Link from 'next/link';
 import { Article } from '../articles/_types/type';
-import cn from "@/common/utils/cn";
+import cn from '@/common/utils/cn';
 
 type ArticleCardProps = {
   article: Article;
@@ -14,7 +14,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       href={`/articles/${slug}`}
       key={article.title}
       className={cn(
-        "relative w-full h-fit hover:scale-105 duration-200 overflow-hidden group",
+        'relative w-full h-fit hover:scale-105 duration-200 overflow-hidden group'
       )}
     >
       <div className="flex items-center w-full justify-between mb-2">
@@ -25,4 +25,4 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       </div>
     </Link>
   );
-} 
+}

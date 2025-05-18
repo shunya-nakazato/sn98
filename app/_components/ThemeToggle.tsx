@@ -1,6 +1,5 @@
 'use client';
 
-
 export function ThemeToggle({ toggleTheme }: { toggleTheme: () => void }) {
   return (
     <button
@@ -12,4 +11,4 @@ export function ThemeToggle({ toggleTheme }: { toggleTheme: () => void }) {
       <span className="">theme</span>
     </button>
   );
-} 
+}

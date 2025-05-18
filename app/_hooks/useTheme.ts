@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 
 type Theme = 'light' | 'dark';
@@ -18,7 +17,9 @@ export default function useTheme() {
       htmlRef.current.classList.add(storedTheme);
     } else {
       // システム設定からテーマを取得
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const prefersDark = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
       const initialTheme = prefersDark ? 'dark' : 'light';
       htmlRef.current.classList.remove('light', 'dark');
       htmlRef.current.classList.add(initialTheme);
@@ -29,7 +30,9 @@ export default function useTheme() {
   const toggleTheme = () => {
     if (!htmlRef.current) return;
 
-    const currentTheme = htmlRef.current.classList.contains('dark') ? 'dark' : 'light';
+    const currentTheme = htmlRef.current.classList.contains('dark')
+      ? 'dark'
+      : 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
     htmlRef.current.classList.remove(currentTheme);
@@ -38,4 +41,4 @@ export default function useTheme() {
   };
 
   return { toggleTheme };
-} 
+}

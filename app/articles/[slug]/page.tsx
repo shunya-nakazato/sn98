@@ -1,11 +1,11 @@
-import { articles } from "../_data/data";
+import { articles } from '../_data/data';
 import LatexHtmlArticle from '../_components/LatexHtmlArticle';
 import { notFound } from 'next/navigation';
 import { Article } from '../_types/type';
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next';
 
 // Generate static params for SSG
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return articles.map((article) => ({
     slug: article.file.replace('.tex', ''),
   }));
@@ -17,11 +17,7 @@ type Props = {
   }>;
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article: Article | undefined = articles.find(
     (article) => article.file.replace('.tex', '') === slug
@@ -34,7 +30,7 @@ export async function generateMetadata(
   return {
     title: `${article.title} | SN98`,
     description: article.description,
-  }
+  };
 }
 
 export default async function ArticlePage({ params }: Props) {
@@ -57,4 +53,4 @@ export default async function ArticlePage({ params }: Props) {
       </article>
     </main>
   );
-} 
+}
