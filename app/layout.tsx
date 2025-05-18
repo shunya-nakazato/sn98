@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import cn from "@/common/utils/cn";
 import NavigationMenu from "./_components/NavigationMenu";
+import Header from "./_components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,11 +32,16 @@ export default function RootLayout({
           geistSans.variable,
           geistMono.variable,
           "antialiased",
-          "min-w-screen min-h-screen",
+          "w-screen h-screen",
           "overflow-hidden"
         )}
       >
-        {children}
+        <main className="w-full h-full overflow-y-scroll">
+          <Header />
+          <div className="w-full p-3 pb-24">
+            {children}
+          </div>
+        </main>
         <NavigationMenu />
       </body>
     </html>

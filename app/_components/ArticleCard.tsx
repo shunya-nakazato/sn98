@@ -1,7 +1,5 @@
 import Link from "next/link";
-import LatexHtmlArticle from '../articles/_components/LatexHtmlArticle';
 import { Article } from '../articles/_types/type';
-import convertTitleToSlug from '../_utils/convertTitleToSlug';
 import cn from "@/common/utils/cn";
 
 type ArticleCardProps = {
@@ -9,7 +7,7 @@ type ArticleCardProps = {
 };
 
 export default function ArticleCard({ article }: ArticleCardProps) {
-  const slug = convertTitleToSlug(article.title);
+  const slug = article.file.replace('.tex', '');
 
   return (
     <Link
