@@ -10,12 +10,18 @@ export default function NavigationMenu() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-8 left-8 z-50 rounded-2xl bg-background">
+    <div
+      className="fixed bottom-8 left-8 z-50 rounded-2xl bg-background"
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+          setOpen(false);
+        }
+      }}
+    >
       <NavMenu open={open} />
       <button
         className="flex justify-center items-center cursor-pointer p-3 rounded-2xl border border-contrast"
         onClick={() => setOpen((v) => !v)}
-        // onBlur={() => setOpen(false)}
       >
         <TbCategory className="text-2xl" />
       </button>

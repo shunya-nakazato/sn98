@@ -13,9 +13,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
     <Link
       href={`/articles/${slug}`}
       key={article.title}
-      className={cn(
-        'relative w-full h-fit hover:scale-105 duration-200 overflow-hidden group'
-      )}
+      className={cn('relative w-full h-fit overflow-hidden group')}
     >
       <div className="flex items-center w-full justify-between mb-2">
         <h2 className="text-2xl font-bold">{article.title}</h2>
